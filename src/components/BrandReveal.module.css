@@ -1,0 +1,140 @@
+/* ── BrandReveal — full-viewport layout ── */
+.brandReveal {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--primary-bg);
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+/* ── Side image panels ── */
+.sidePanel {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.sideImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* Gradient fade toward centre so image blends cleanly */
+.sideFade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    transparent 30%,
+    var(--primary-bg) 100%
+  );
+}
+
+.sideFadeRight {
+  background: linear-gradient(
+    to left,
+    transparent 30%,
+    var(--primary-bg) 100%
+  );
+}
+
+/* ── Centre column ── */
+.center {
+  position: relative;
+  flex: 0 0 clamp(340px, 42vw, 620px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+/* SVG ring — positioned absolute so text sits on top */
+.ring {
+  position: absolute;
+  width: clamp(280px, 38vw, 580px);
+  height: clamp(280px, 38vw, 580px);
+  color: var(--primary-accent);
+  opacity: 0.55;
+  transform-origin: center;
+}
+
+/* Text block sits above the ring */
+.textBlock {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.4rem;
+}
+
+.headline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0.88;
+  letter-spacing: -0.03em;
+  font-size: clamp(3.8rem, 7.5vw, 7.5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.line1 {
+  color: var(--primary-accent);
+}
+
+.line2 {
+  color: var(--secondary-accent);
+  /* subtle glow just like the reference */
+  text-shadow: 0 0 40px rgba(195, 169, 132, 0.55);
+}
+
+.line3 {
+  color: var(--primary-accent);
+}
+
+.categories {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: rgba(59, 40, 24, 0.55);
+  text-transform: uppercase;
+}
+
+/* Pill CTA — matching reference's rounded-full pill */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: var(--primary-accent);
+  color: var(--primary-bg);
+  padding: 1rem 2.8rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease,
+              box-shadow 0.3s ease;
+  box-shadow: 0 10px 28px rgba(59, 40, 24, 0.22);
+}
+
+.cta:hover {
+  background-color: var(--secondary-accent);
+  color: var(--primary-accent);
+  transform: scale(1.05);
+  box-shadow: 0 14px 36px rgba(59, 40, 24, 0.3);
+}
+
+@media (max-width: 900px) {
+  .sidePanel { display: none; }
+  .center { flex: 1; }
+}

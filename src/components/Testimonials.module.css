@@ -1,0 +1,93 @@
+.testimonials {
+  width: 100%;
+  padding: 8rem 0;
+  background-color: var(--primary-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.header {
+  padding: 0 4rem;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-size: 4rem;
+  color: var(--text-dark);
+  line-height: 1;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: var(--secondary-accent);
+  letter-spacing: 0.3em;
+  margin-top: 1rem;
+}
+
+.sliderContainer {
+  width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  gap: 3rem;
+  width: max-content;
+  padding-left: 3rem;
+}
+
+.card {
+  width: 450px;
+  background-color: var(--secondary-bg);
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(59, 40, 24, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  border: 1px solid rgba(195, 169, 132, 0.2);
+}
+
+.text {
+  font-size: 1.5rem;
+  color: var(--text-dark);
+  line-height: 1.4;
+  font-style: italic;
+}
+
+.author {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-size: 1.2rem;
+  color: var(--text-dark);
+}
+
+.role {
+  font-size: 0.9rem;
+  color: var(--text-brown);
+  margin-top: 0.3rem;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 0 2rem;
+  }
+  .title {
+    font-size: 2.5rem;
+  }
+  .sliderContainer {
+    padding-left: 2rem;
+  }
+  .card {
+    width: 320px;
+    padding: 2rem;
+  }
+  .text {
+    font-size: 1.2rem;
+  }
+}
