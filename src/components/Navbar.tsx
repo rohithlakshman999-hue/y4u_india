@@ -1,15 +1,19 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styles from './Navbar.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Navbar() {
   const linksRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
 
   useEffect(() => {
+    // ONLY run the scroll animation if we are exactly on the home page
+    if (location.pathname !== '/') return;
+
     const stack = document.querySelector('.intro-stack');
     if (!stack || !linksRef.current) return;
 
@@ -32,7 +36,7 @@ export default function Navbar() {
         gap: '2.5rem',
         duration: 0.3,
         ease: 'power2.inOut'
-      }, 0.1); // Starts slightly after scroll
+      }, 0.1); 
 
       // Move back to top-right as we leave the intro stack
       tl.to(linksRef.current, {
@@ -43,15 +47,25 @@ export default function Navbar() {
         gap: '3rem',
         duration: 0.3,
         ease: 'power2.inOut'
-      }, 0.7); // Animates back near the end of the pin
+      }, 0.7); 
 
     }, linksRef);
 
-    return () => ctx.revert();
-  }, []);
+    // Cleanup reverts GSAP styles
+    return () => {
+      ctx.revert();
+    };
+  }, [location.pathname]);
+
+  // Hide global navbar entirely on product detail pages (it has its own back bar)
+  if (location.pathname.includes('/product/')) {
+    return null;
+  }
+
+  const isHome = location.pathname === '/';
 
   return (
-    <nav className={styles.navbar}>
+    <nav className={`${styles.navbar} ${!isHome ? styles.absoluteNav : ''}`}>
       <div className={styles.logoContainer}>
         <img src="/logo.png" alt="Y4U" className={styles.logoIcon} />
         <Link to="/" className={styles.logoText}>Y4U.</Link>

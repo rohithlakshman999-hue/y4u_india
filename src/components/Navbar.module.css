@@ -13,6 +13,10 @@
   pointer-events: none;
 }
 
+.absoluteNav {
+  position: absolute !important;
+}
+
 .navbar > * {
   pointer-events: auto;
 }

@@ -56,7 +56,7 @@ export default function Hero() {
 
       // Fade the entire hero container to reveal BrandReveal underneath
       tl.to(containerRef.current, {
-        opacity: 0,
+        autoAlpha: 0,
         ease: 'power2.inOut',
         duration: 0.8,
       }, 0.2);

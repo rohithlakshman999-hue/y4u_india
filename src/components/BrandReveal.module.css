@@ -62,6 +62,7 @@
   color: var(--primary-accent);
   opacity: 0.55;
   transform-origin: center;
+  pointer-events: none;
 }
 
 /* Text block sits above the ring */

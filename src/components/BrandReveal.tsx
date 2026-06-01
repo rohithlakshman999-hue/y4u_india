@@ -122,9 +122,9 @@ export default function BrandReveal() {
         {/* Text block */}
         <div ref={textRef} className={styles.textBlock}>
           <h2 className={styles.headline}>
-            <span className={styles.line1}>Y4U.</span>
-            <span className={styles.line2}>STYLE.</span>
-            <span className={styles.line3}>YOU.</span>
+            <span className={styles.line1}>WEAR</span>
+            <span className={styles.line2}>YOUR</span>
+            <span className={styles.line3}>STORY</span>
           </h2>
           <p className={`${styles.categories} br-sub`}>
             T-SHIRTS&nbsp;&nbsp;|&nbsp;&nbsp;HOODIES&nbsp;&nbsp;|&nbsp;&nbsp;BOTTOMS&nbsp;&nbsp;|&nbsp;&nbsp;OUTERWEAR
